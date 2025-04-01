@@ -23,6 +23,7 @@ body {
 
 header {
   display: inline;
+  overflow-x: hidden;
 }
 
 .navbar-container {
@@ -54,12 +55,11 @@ header {
 
 .nav-list {
   background-color: var(--blue);
-  padding: 12px;
+  padding: 15px;
   justify-content: space-evenly;
   display: flex;
   align-items: center;
   border-bottom: 2px solid navy;
-  border-top: 1px solid navy;
   position: sticky;
   z-index: 9999;
   top: 0;
@@ -101,19 +101,21 @@ header {
   width: 25rem;
   height: 2rem;
   display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .search-form input {
-  width: 100%;
-  height: 100%;
-  font-size: 1.1rem;
-  padding: 5px;
+  width: 70rem;
+  height: 2.5rem;
+  font-size: 1.5rem;
+  padding: 8px;
 }
 .search-button {
   color: var(--blue);
   background-color: var(--white);
-  font-size: 1.3rem;
-  padding: 1px 1px;
-  cursor: pointer;
+  font-size: 1.6rem;
+  width: 3rem;
+  height: 2.5rem;
 }
 
 .search-button:hover {
@@ -123,7 +125,7 @@ header {
 .nav-extra a {
   color: var(--white);
   padding: 5px 10px;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
 }
 
 #hamburger-menu {
@@ -133,6 +135,17 @@ header {
 .nav-extra a:hover {
   color: var(--black);
 }
+
+main {
+  display: flex;
+  gap: 1.3rem;
+}
+#content {
+  flex: 5;
+  display: flex;
+  gap: 1rem 2rem;
+}
+
 /* hero section */
 .hero {
   color: var(--white);
@@ -179,7 +192,7 @@ header {
 
 /* about section */
 .about {
-  padding: 4rem 7% 1.4rem;
+  padding: 7rem 7% 1.4rem;
   color: var(--white);
   background-color: var(--bg);
   text-align: center;
@@ -188,11 +201,7 @@ header {
 .about h1 {
   margin-top: 3rem;
   font-size: 3rem;
-  font-weight: 800;
-}
-
-.about h1 span {
-  color: var(--blue);
+  font-weight: 700;
 }
 
 .about .about-container {
@@ -250,7 +259,7 @@ header {
 /* class section */
 
 .class {
-  padding: 4rem 7% 1.4rem;
+  padding: 7rem 7% 1.4rem;
   color: var(--white);
   text-align: center;
 }
@@ -258,42 +267,236 @@ header {
 .class h1 {
   margin-top: 3rem;
   font-size: 3rem;
-  font-weight: 800;
+  font-weight: 700;
   color: var(--white);
+}
+.class .class-card {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem 2rem;
+  justify-content: space-around;
 }
 .class .class-card a {
   display: flex;
-  padding: 5px;
-  border-radius: 10%;
-  background-color: antiquewhite;
+  border-radius: 20px;
+  background-color: rgb(143, 143, 143);
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  width: 30rem;
-  height: 10rem;
+  padding: 16px;
+  margin-top: 4rem;
+  border: 1px solid blue;
 }
 .class .class-card a .card-img img {
-  width: 5rem;
+  width: 7rem;
   border-radius: 50%;
 }
 
+.class .class-card a .card-content {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
 .class .class-card a .card-content h1 {
   padding-top: 0;
-  font-size: 1rem;
+  font-size: 1.5rem;
   color: var(--black);
   text-align: left;
+  margin-top: 0;
+  width: 15rem;
 }
 
 .class .class-card a .card-content p {
-  font-size: 0.8rem;
-  color: var(--blue);
+  font-size: 1.3rem;
+  color: var(--black);
   width: 20rem;
   text-align: left;
 }
 
+/* contact */
+.contact {
+  padding: 7rem 7% 1.4rem;
+  color: var(--white);
+  text-align: center;
+}
+.contact h1 {
+  margin-top: 3rem;
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--white);
+}
+.contact .row {
+  display: flex;
+  margin-top: 2rem;
+  background-color: rgb(27, 27, 27);
+  align-items: center;
+}
+
+.contact .row .map {
+  flex: 1 1 45rem;
+  width: 100%;
+  object-fit: cover;
+  height: 50rem;
+}
+
+.contact .row form {
+  flex: 1 1 45rem;
+  padding: 5rem 2rem;
+  text-align: center;
+}
+
+.contact .row form .input-group {
+  display: flex;
+  align-items: center;
+  margin-top: 2rem;
+  background-color: var(--bg);
+  border: 1px solid #eee;
+  padding-left: 2rem;
+}
+
+.contact .row form .input-group input {
+  width: 100%;
+  padding: 2rem;
+  font-size: 1.7rem;
+  background: none;
+  color: #fff;
+}
+.contact .row form .input-group #pesan {
+  font-size: 100%;
+  height: 12rem;
+  font-size: 1.5rem;
+}
+
+.contact .row form .btn {
+  margin-top: 3rem;
+  display: inline-block;
+  padding: 1rem 3rem;
+  font-size: 1.7rem;
+  color: #fff;
+  background-color: var(--blue);
+  cursor: pointer;
+}
+
+.contact .row .btn .send {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+/* aside */
+.featured-image {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  padding: 25px;
+  width: 20rem;
+  background-color: rgb(27, 27, 27);
+  flex-wrap: wrap;
+}
+
+.card h2 {
+  color: var(--white);
+}
+.card p {
+  color: var(--white);
+}
+
+.card .table {
+  color: var(--white);
+}
+
+.card .table h3 {
+  text-align: center;
+  margin-bottom: 5px;
+}
+.card .table .table-list {
+  margin-right: auto;
+  margin-left: auto;
+}
+aside {
+  flex: 1;
+}
+.profile header {
+  text-align: center;
+}
+.profile img {
+  margin-top: 10px;
+  width: 200px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+/* footer */
+footer {
+  background-color: var(--blue);
+  text-align: center;
+  padding: 1rem 0 3rem;
+  margin-top: 3rem;
+}
+
+footer .socials {
+  padding: 1rem 0;
+}
+
+footer .socials a {
+  color: #fff;
+  margin: 1rem;
+  font-size: 1.8rem;
+}
+
+footer .socials a:hover {
+  color: var(--black);
+}
+
+footer .nav li {
+  list-style-type: none;
+}
+footer .nav {
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+footer .nav a {
+  color: #fff;
+  padding: 0.7rem 0.5rem;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+footer .nav a:hover {
+  color: var(--black);
+}
+
+footer .credits {
+  font-size: 0.8rem;
+  color: var(--white);
+}
+
+footer .credits a {
+  color: var(--black);
+  font-weight: 800;
+}
+
+/* media query */
 @media only screen and (max-width: 1336px) {
   html {
     font-size: 75%;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  main {
+    flex-flow: column nowrap;
+  }
+
+  main aside {
+    align-self: center;
   }
 }
 
@@ -323,12 +526,20 @@ header {
 }
 
 @media screen and (max-width: 768px) {
+  main {
+    flex-direction: column;
+  }
+  main aside {
+    align-self: stretch;
+    align-self: center;
+  }
   html {
     font-size: 62.5%;
   }
 
   .navbar-container {
-    height: 180px;
+    height: 150px;
+    z-index: 99999;
   }
 
   .navbar-container .title {
@@ -338,26 +549,31 @@ header {
   .logo img {
     width: 80px;
   }
+
   .nav-list .nav {
     position: absolute;
-    top: 100%;
-    right: -100%;
-    background-color: #fff;
-    width: 20rem;
-    height: 100vh;
-    transition: 0.3s;
-    flex-direction: column;
-    justify-content: start;
+    top: -50%;
+    opacity: 0;
+    background-color: var(--blue);
+    width: 100%;
+    height: 5rem;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.3s ease-in-out;
+    justify-content: center;
+    align-items: center;
   }
   .nav-list .nav.active {
-    right: 0;
+    top: 100%;
+    transform: scaleY(1);
+    opacity: 1;
   }
 
   .nav-list .nav a {
-    color: var(--bg);
+    color: var(--white);
     display: block;
     margin: 2rem;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
   }
   .nav-extra {
     display: flex;
@@ -414,12 +630,51 @@ header {
     font-size: 1.5rem;
     margin-bottom: 2rem;
   }
+  .contact .row {
+    flex-wrap: wrap;
+  }
+  .contact .row .map {
+    height: 30rem;
+  }
+  .contact .row form {
+    padding-top: 0;
+  }
+  .contact .row form .input-group input {
+    font-size: 100%;
+  }
+
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    padding: 25px;
+    width: auto;
+  }
+
+  .profile img {
+    width: 175px;
+  }
 }
 
 /* mobile phone*/
 @media only screen and (max-width: 650px) {
   html {
     font-size: 55%;
+  }
+  .about-container .about-content p {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  .about .learning .learning-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .about .learning .learning-list li {
+    width: 23rem;
   }
 }
 
@@ -428,9 +683,10 @@ header {
     font-size: 45%;
   }
   .navbar-container {
-    height: 150px;
+    height: 135px;
   }
   .logo img {
-    width: 70px;
+    width: 65px;
+    box-shadow: 1px 1px 3px black;
   }
 }
