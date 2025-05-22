@@ -715,6 +715,6 @@ footer .credits a {
 }
 @media only screen and (max-width: 380px) {
   .nav-extra {
-    left: 100px;
+    left: 80px;
   }
 }
