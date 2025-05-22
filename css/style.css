@@ -713,3 +713,8 @@ footer .credits a {
     box-shadow: 1px 1px 3px var(--black); /* Menggunakan variabel */
   }
 }
+@media only screen and (max-width: 380px) {
+  .nav-extra {
+    left: 100px;
+  }
+}
