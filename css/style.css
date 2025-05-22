@@ -2,6 +2,8 @@
   --black: black;
   --blue: #3c42eb;
   --white: white;
+  --bg: #1b1b1b; /* Definisi --bg ditambahkan */
+  --primary: var(--blue); /* Contoh: Anda bisa mendefinisikan primary color */
 }
 
 * {
@@ -40,17 +42,17 @@ header {
 }
 
 .navbar-container .title {
-  color: white;
+  color: var(--white); /* Menggunakan variabel */
   font-weight: 500;
   font-size: 1.5rem;
-  text-shadow: 2px 2px 2px black;
+  text-shadow: 2px 2px 2px var(--black); /* Menggunakan variabel */
 }
 
 .logo img {
   width: 90px;
   margin-left: 1.5rem;
   border-radius: 50%;
-  box-shadow: 0.5px 0.5px 4px black;
+  box-shadow: 0.5px 0.5px 4px var(--black); /* Menggunakan variabel */
 }
 
 .nav-list {
@@ -83,52 +85,102 @@ header {
 .nav-list li a::after {
   content: "";
   display: block;
-  border-bottom: 0.1rem solid var(--black);
+  border-bottom: 0.1rem solid var(--black); /* Menggunakan variabel */
   transform: scaleX(0);
   transition: 0.2s linear;
 }
 
 .nav-list li a:hover {
-  color: var(--black);
+  color: var(--black); /* Menggunakan variabel */
 }
 
 .nav-list li a:hover::after {
   transform: scaleX(0.8);
 }
 
+/* SEARCH FORM & AUTOCOMPLETE STYLES */
 .nav-list .search-form {
   position: absolute;
-  top: 100%;
-  right: 20%;
-  background-color: #fff;
+  top: 100%; /* Akan muncul tepat di bawah navbar */
+  right: 20%; /* Posisi dari kanan */
+  background-color: transparent; /* Ubah ke transparan */
   width: 30rem;
-  height: 3rem;
-  display: flex;
-  align-items: center;
+  /* height: auto; -- Hapus properti height agar bisa memanjang ke bawah */
+  display: block; /* Ubah ke block agar elemen di dalamnya bisa disusun vertikal */
   transform: scaleY(0);
   transform-origin: top;
   transition: 0.3s;
+  z-index: 9999; /* Pastikan di atas elemen lain, sama dengan navbar sticky */
+  box-shadow: none; /* Hapus shadow di sini, pindahkan ke input-wrapper atau autocomplete */
 }
 
 .nav-list .search-form.active {
   transform: scaleY(1);
 }
 
-.nav-list .search-form input {
-  height: 100%;
+/* Wrapper untuk input dan ikon pencarian agar sejajar */
+.search-input-wrapper {
+  display: flex;
+  align-items: center;
   width: 100%;
-  font-size: 1.6rem;
-  color: var(--bg);
-  padding: 1rem;
+  height: 3.8rem; /* Tinggi input */
+  background-color: var(--white); /* Background input */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow input */
 }
+
+.nav-list .search-form input {
+  flex-grow: 1; /* Input akan mengambil sisa ruang */
+  height: 100%; /* Mengisi tinggi wrapper */
+  font-size: 1.6rem;
+  color: var(--black); /* Warna teks input */
+  padding: 1rem;
+  background: none; /* Hapus background default */
+  border: none; /* Hapus border default */
+}
+
 .nav-list .search-form label {
   cursor: pointer;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   margin-right: 1.5rem;
-  color: var(--bg);
+  color: var(--black); /* Warna ikon */
 }
 .nav-list .search-form label:hover {
-  color: var(--primary);
+  color: var(--blue); /* Hover warna ikon */
+}
+
+/* Autocomplete List Container */
+#autocomplete-list {
+  /* Gunakan ID agar lebih spesifik */
+  width: 100%;
+  max-height: 12rem; /* Batasi tinggi, tambahkan scroll jika banyak saran */
+  overflow-y: auto; /* Aktifkan scroll vertikal */
+  background-color: var(--white);
+  border: 1px solid #ddd;
+  border-top: none; /* Hilangkan border atas karena menempel ke input-wrapper */
+  position: relative; /* Agar posisi di bawah input wrapper */
+  z-index: 999; /* Pastikan di atas konten lain, di bawah search form */
+  display: none; /* Sembunyikan secara default, JavaScript akan menampilkannya */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow untuk daftar saran */
+  border-radius: 0 0 5px 5px; /* Lengkungan di bagian bawah */
+}
+
+/* Setiap item saran di autocomplete list */
+.autocomplete-item {
+  /* Gunakan kelas ini */
+  padding: 10px 1rem;
+  cursor: pointer;
+  background-color: var(--white);
+  border-bottom: 1px solid #eee;
+  color: var(--black); /* Warna teks saran */
+  font-size: 1.2rem;
+}
+
+.autocomplete-item:last-child {
+  border-bottom: none; /* Hapus border bawah pada item terakhir */
+}
+
+.autocomplete-item:hover {
+  background-color: #f1f1f1; /* Efek hover pada saran */
 }
 
 #hamburger-menu {
@@ -140,14 +192,14 @@ header {
   align-items: center;
 }
 .nav-extra a {
-  color: #fff;
+  color: var(--white); /* Menggunakan variabel */
   margin: 0 1rem;
   font-weight: 500;
   font-size: 1.5rem;
   margin-right: 30px;
 }
 .nav-extra a:hover {
-  color: var(--black);
+  color: var(--black); /* Menggunakan variabel */
 }
 
 /* hero section */
@@ -198,7 +250,6 @@ header {
 .about {
   padding: 7rem 7% 1.4rem;
   color: var(--white);
-  background-color: var(--bg);
   text-align: center;
 }
 
@@ -261,7 +312,6 @@ header {
 }
 
 /* class section */
-
 .class {
   padding: 7rem 7% 1.4rem;
   color: var(--white);
@@ -289,7 +339,7 @@ header {
   gap: 1rem;
   padding: 16px;
   margin-top: 4rem;
-  border: 1px solid blue;
+  border: 1px solid var(--blue); /* Menggunakan variabel */
 }
 .class .class-card a .card-img img {
   width: 7rem;
@@ -304,7 +354,7 @@ header {
 .class .class-card a .card-content h1 {
   padding-top: 0;
   font-size: 1.5rem;
-  color: var(--black);
+  color: var(--black); /* Menggunakan variabel */
   text-align: left;
   margin-top: 0;
   width: 15rem;
@@ -312,7 +362,7 @@ header {
 
 .class .class-card a .card-content p {
   font-size: 1.3rem;
-  color: var(--black);
+  color: var(--black); /* Menggunakan variabel */
   width: 20rem;
   text-align: left;
 }
@@ -332,7 +382,7 @@ header {
 .contact .row {
   display: flex;
   margin-top: 2rem;
-  background-color: rgb(27, 27, 27);
+  background-color: var(--bg); /* Menggunakan variabel */
 }
 
 .contact .row .map {
@@ -351,7 +401,7 @@ header {
   display: flex;
   align-items: center;
   margin-top: 2rem;
-  background-color: var(--bg);
+  background-color: var(--bg); /* Menggunakan variabel */
   border: 1px solid #eee;
   padding-left: 2rem;
 }
@@ -361,14 +411,14 @@ header {
   padding: 2rem;
   font-size: 1.7rem;
   background: none;
-  color: #fff;
+  color: var(--white); /* Menggunakan variabel */
 }
 .contact .row form .input-group textarea {
   width: 100%;
   padding: 2rem;
   font-size: 1.7rem;
   background: none;
-  color: #fff;
+  color: var(--white); /* Menggunakan variabel */
   height: 12rem;
 }
 
@@ -377,7 +427,7 @@ header {
   display: inline-block;
   padding: 1rem 3rem;
   font-size: 1.7rem;
-  color: #fff;
+  color: var(--white); /* Menggunakan variabel */
   background-color: var(--blue);
   cursor: pointer;
 }
@@ -405,13 +455,13 @@ footer .socials {
 }
 
 footer .socials a {
-  color: #fff;
+  color: var(--white); /* Menggunakan variabel */
   margin: 1rem;
   font-size: 1.8rem;
 }
 
 footer .socials a:hover {
-  color: var(--black);
+  color: var(--black); /* Menggunakan variabel */
 }
 
 footer .nav li {
@@ -424,23 +474,23 @@ footer .nav {
 }
 
 footer .nav a {
-  color: #fff;
+  color: var(--white); /* Menggunakan variabel */
   padding: 0.7rem 0.5rem;
   font-weight: 700;
   font-size: 1rem;
 }
 
 footer .nav a:hover {
-  color: var(--black);
+  color: var(--black); /* Menggunakan variabel */
 }
 
 footer .credits {
   font-size: 0.8rem;
-  color: var(--white);
+  color: var(--white); /* Menggunakan variabel */
 }
 
 footer .credits a {
-  color: var(--black);
+  color: var(--black); /* Menggunakan variabel */
   font-weight: 800;
 }
 
@@ -522,7 +572,7 @@ footer .credits a {
   }
   .nav-extra {
     position: relative;
-    left: 270px;
+    left: 270px; /* Pertimbangkan menggunakan transform: translateX() */
   }
   .nav-extra a {
     color: var(--white);
@@ -604,6 +654,13 @@ footer .credits a {
     padding: 25px;
     width: auto;
   }
+
+  /* Responsive Search Form */
+  .nav-list .search-form {
+    width: 90%; /* Lebih lebar di layar kecil */
+    right: 5%; /* Pusatkan di tengah */
+    left: 5%;
+  }
 }
 
 /* mobile phone*/
@@ -630,7 +687,14 @@ footer .credits a {
   }
   .nav-extra {
     position: relative;
-    left: 180px;
+    left: 180px; /* Pertimbangkan menggunakan transform: translateX() */
+  }
+
+  /* Responsive Search Form */
+  .nav-list .search-form {
+    width: 95%;
+    right: 2.5%;
+    left: 2.5%;
   }
 }
 
@@ -641,8 +705,11 @@ footer .credits a {
   .navbar-container {
     height: 105px;
   }
+  .nav-extra {
+    left: 120px;
+  }
   .logo img {
     width: 65px;
-    box-shadow: 1px 1px 3px black;
+    box-shadow: 1px 1px 3px var(--black); /* Menggunakan variabel */
   }
 }
