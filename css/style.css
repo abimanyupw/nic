@@ -362,12 +362,14 @@ header {
 
 .class .class-card .class-item.minimalist .card-image-wrapper {
   width: 100%;
-  height: 10rem; /* Gambar lebih kecil */
+  height: 12rem; /* Gambar lebih kecil */
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f8f8f8; /* Latar belakang untuk gambar jika gambar kecil atau ikon */
+  background-image: url(../img/bg-class.png); /* Latar belakang untuk gambar jika gambar kecil atau ikon */
+  background-size: cover; /* Pastikan gambar menutupi area */
+  background-position: center; /* Pusatkan gambar */
 }
 
 .class .class-card .class-item.minimalist .card-image-wrapper img {
@@ -402,13 +404,14 @@ header {
   display: flex;
   justify-content: space-between; /* Menata ikon dan teks agar terpisah */
   align-items: center;
-  padding: 0.8rem 1.5rem; /* Padding di sekitar meta info */
+  padding: 0.5rem 1rem; /* Padding di sekitar meta info */
   background-color: var(--blue); /* Warna latar belakang untuk meta */
   color: var(--white); /* Warna teks untuk meta */
   font-size: 0.9rem; /* Ukuran font lebih kecil dari konten utama */
   border-radius: 0 0 12px 12px; /* Melengkungkan sudut bawah mengikuti kartu */
   position: relative; /* Penting untuk z-index jika ada aksen lain */
   z-index: 2; /* Pastikan di atas aksen gradient jika ada */
+  margin-top: auto; /* Agar tetap di bawah konten */
 }
 
 .class .class-card .class-item.minimalist .card-meta span {
@@ -437,8 +440,8 @@ header {
   right: 0;
   width: 0;
   height: 0;
-  border-bottom: 40px solid var(--blue); /* Ukuran aksen */
-  border-left: 40px solid transparent; /* Bentuk segitiga */
+  border-bottom: 80px solid var(--blue); /* Ukuran aksen */
+  border-left: 80px solid transparent; /* Bentuk segitiga */
   border-bottom-right-radius: 12px; /* Ikuti radius kartu */
 }
 
