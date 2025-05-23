@@ -440,10 +440,10 @@ header {
   right: 0;
   width: 0;
   height: 0;
-  border-bottom: 60px solid var(--blue); /* Ukuran aksen */
-  border-left: 60px solid transparent; /* Bentuk segitiga */
-  border-bottom-right-radius: 12px; /* Ikuti radius kartu */
-}
+  border-bottom: 50px solid var(--blue); /* Ukuran aksen */
+  border-left: 50px solid transparent; /* Bentuk segitiga */
+  border-bottom-right-radius: 10px; /* Ikuti radius kartu */
+
 
 /* contact */
 .contact {
