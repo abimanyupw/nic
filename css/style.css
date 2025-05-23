@@ -665,7 +665,7 @@ footer .credits a {
     color: var(--white);
     margin: 0 1rem;
     font-weight: 500;
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
   #hamburger-menu {
     display: inline-block;
@@ -786,18 +786,8 @@ footer .credits a {
   .navbar-container {
     height: 105px;
   }
-  /* Hapus properti left dari sini */
-  /* .nav-extra {
-        left: 120px;
-    } */
   .logo img {
     width: 65px;
     box-shadow: 1px 1px 3px var(--black); /* Menggunakan variabel */
   }
-}
-@media only screen and (max-width: 380px) {
-  /* Hapus properti left dari sini */
-  /* .nav-extra {
-        left: 100px;
-    } */
 }
