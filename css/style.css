@@ -343,7 +343,7 @@ header {
   display: flex;
   flex-direction: column; /* Atau 'row' jika ingin gambar di samping */
   width: 22rem;
-  border-radius: 12px;
+  border-radius: 10px;
   background-color: rgb(0, 224, 254);
   overflow: hidden;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08); /* Shadow lebih lembut dan halus */
@@ -440,8 +440,8 @@ header {
   right: 0;
   width: 0;
   height: 0;
-  border-bottom: 80px solid var(--blue); /* Ukuran aksen */
-  border-left: 80px solid transparent; /* Bentuk segitiga */
+  border-bottom: 60px solid var(--blue); /* Ukuran aksen */
+  border-left: 60px solid transparent; /* Bentuk segitiga */
   border-bottom-right-radius: 12px; /* Ikuti radius kartu */
 }
 
