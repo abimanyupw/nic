@@ -440,10 +440,10 @@ header {
   right: 0;
   width: 0;
   height: 0;
-  border-bottom: 50px solid var(--blue); /* Ukuran aksen */
-  border-left: 50px solid transparent; /* Bentuk segitiga */
+  border-bottom: 60px solid var(--blue); /* Ukuran aksen */
+  border-left: 60px solid transparent; /* Bentuk segitiga */
   border-bottom-right-radius: 10px; /* Ikuti radius kartu */
-
+}
 
 /* contact */
 .contact {
@@ -786,8 +786,18 @@ footer .credits a {
   .navbar-container {
     height: 105px;
   }
+  /* Hapus properti left dari sini */
+  /* .nav-extra {
+        left: 120px;
+    } */
   .logo img {
     width: 65px;
     box-shadow: 1px 1px 3px var(--black); /* Menggunakan variabel */
   }
+}
+@media only screen and (max-width: 380px) {
+  /* Hapus properti left dari sini */
+  /* .nav-extra {
+        left: 100px;
+    } */
 }
