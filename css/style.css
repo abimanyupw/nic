@@ -328,22 +328,22 @@ header {
   font-size: 3rem;
   font-weight: 700;
   color: var(--white);
-  margin-bottom: 4rem; /* Tambahkan margin bawah untuk judul section */
+  margin-bottom: 3rem; /* Tambahkan margin bawah untuk judul section */
 }
 
 .class .class-card {
-  display: flex;
-  flex-wrap: wrap; /* Agar kartu bisa melipat ke baris berikutnya */
+  display: flex; /* Agar kartu bisa melipat ke baris berikutnya */
   justify-content: center; /* Pusatkan kartu di dalam kontainer */
-  gap: 2rem; /* Jarak antar kartu */
+  gap: 2.8rem; /* Jarak antar kartu */
   padding: 2rem; /* Ruang di sekitar kartu */
+  flex-wrap: wrap;
 }
 .class .class-card .class-item.minimalist {
   /* Tambahkan kelas 'minimalist' pada elemen kartu Anda */
   display: flex;
   flex-direction: column; /* Atau 'row' jika ingin gambar di samping */
   width: 22rem;
-  border-radius: 10px;
+  border-radius: 12px;
   background-color: rgb(0, 224, 254);
   overflow: hidden;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08); /* Shadow lebih lembut dan halus */
@@ -375,7 +375,7 @@ header {
 .class .class-card .class-item.minimalist .card-image-wrapper img {
   object-fit: contain; /* Gambar tidak akan terpotong, pas di tengah */
   width: 80%;
-  height: 80%;
+  height: 80%; /* Sesuaikan tinggi gambar */
   border-radius: 12px 12px 0 0; /* Radius atas untuk gambar */
 }
 
@@ -385,6 +385,7 @@ header {
   flex-direction: column;
   gap: 0.6rem;
   width: 80%;
+  flex-grow: 1;
 }
 
 .class .class-card .class-item.minimalist .card-content h1 {
@@ -481,9 +482,29 @@ header {
   margin-top: 2rem;
   background-color: var(--bg); /* Menggunakan variabel */
   border: 1px solid #eee;
-  padding-left: 2rem;
+}
+/* .contact .row form .input-group input:-webkit-autofill,
+.contact .row form .input-group input:-webkit-autofill:hover,
+.contact .row form .input-group input:-webkit-autofill:focus,
+.contact .row form .input-group input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0px 1000px var(--bg) inset !important;
+  -webkit-text-fill-color: var(--white) !important;
+  background-color: var(--bg) !important;
+  transition: background-color 5000s ease-in-out 0s;
 }
 
+
+.contact .row form .input-group input,
+.contact .row form .input-group textarea {
+  border: none;
+  background-color: transparent; 
+} */
+
+.contact .row form .input-group i {
+  color: var(--white); /* Menggunakan variabel */
+  font-size: 1.8rem;
+  padding: 2rem;
+}
 .contact .row form .input-group input {
   width: 100%;
   padding: 2rem;
@@ -535,7 +556,7 @@ footer .socials {
 footer .socials a {
   color: var(--white); /* Menggunakan variabel */
   margin: 1rem;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
 }
 
 footer .socials a:hover {
@@ -563,7 +584,7 @@ footer .nav a:hover {
 }
 
 footer .credits {
-  font-size: 0.8rem;
+  font-size: 1rem;
   color: var(--white); /* Menggunakan variabel */
 }
 
@@ -665,10 +686,16 @@ footer .credits a {
     color: var(--white);
     margin: 0 1rem;
     font-weight: 500;
-    font-size: 2.5rem;
+    font-size: 2.3rem;
   }
   #hamburger-menu {
     display: inline-block;
+  }
+  /* Responsive Search Form */
+  .nav-list .search-form {
+    width: 90%; /* Lebih lebar di layar kecil */
+    right: 5%; /* Pusatkan di tengah */
+    left: 5%;
   }
 
   /* hero */
@@ -719,8 +746,23 @@ footer .credits a {
     font-size: 1.5rem;
     margin-bottom: 2rem;
   }
+  .class .class-card .class-item.minimalist {
+    width: 100%;
+    max-width: 30rem;
+    margin: 0 auto;
+  }
+  .class .class-card .class-item.minimalist .card-image-wrapper {
+    width: 100%;
+    height: 15rem;
+  }
+  .class .class-card .class-item.minimalist::after {
+    border-bottom: 40px solid var(--blue);
+    border-left: 40px solid transparent;
+  }
+
   .contact .row {
     flex-wrap: wrap;
+    background-color: transparent;
   }
   .contact .row .map {
     height: 30rem;
@@ -735,17 +777,14 @@ footer .credits a {
     font-size: 2rem;
   }
 
-  .class .class-card .class-item.minimalist {
-    width: 100%;
-    max-width: 30rem;
-    margin: 0 auto;
+  footer .socials a {
+    font-size: 1.8rem;
   }
-
-  /* Responsive Search Form */
-  .nav-list .search-form {
-    width: 90%; /* Lebih lebar di layar kecil */
-    right: 5%; /* Pusatkan di tengah */
-    left: 5%;
+  footer .nav a {
+    font-size: 1.5rem;
+  }
+  footer .credits {
+    font-size: 1.3rem;
   }
 }
 

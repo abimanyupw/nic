@@ -72,7 +72,7 @@ searchSubmitButton.addEventListener("click", (e) => {
   // Mencegah perilaku default link '#' pada label atau link
   e.preventDefault();
   // Panggil fungsi live search dengan nilai saat ini di searchBox
-  filterClassCards(searchBox.value);
+  filterClassCards(searchBox.value, true); // Teruskan 'true' untuk memicu scroll
   // Sembunyikan form pencarian setelah menekan tombol submit
   searchForm.classList.remove("active");
   autocompleteList.innerHTML = ""; // Kosongkan daftar autocomplete
@@ -99,12 +99,13 @@ function showAutocompleteSuggestions(searchTerm) {
   autocompleteList.innerHTML = ""; // Kosongkan daftar saran sebelumnya
 
   if (searchTerm.length === 0) {
-    return; // Jangan tampilkan saran jika input kosong
+    autocompleteList.style.display = "none"; // Sembunyikan jika input kosong
+    return;
   }
 
-  const filteredSuggestions = classData.filter(
-    (item) =>
-      item.title.includes(searchTerm) || item.description.includes(searchTerm)
+  // Filter saran HANYA berdasarkan judul (h1)
+  const filteredSuggestions = classData.filter((item) =>
+    item.title.includes(searchTerm)
   );
 
   filteredSuggestions.forEach((item) => {
@@ -115,7 +116,7 @@ function showAutocompleteSuggestions(searchTerm) {
     // Saat saran diklik, isi searchBox dan picu pencarian/filter
     suggestionItem.addEventListener("click", () => {
       searchBox.value = item.title; // Isi searchBox dengan judul yang dipilih
-      filterClassCards(item.title); // Picu live search
+      filterClassCards(item.title, true); // Picu live search dan scroll
       searchForm.classList.remove("active"); // Tutup form
       autocompleteList.innerHTML = ""; // Kosongkan daftar
     });
@@ -131,7 +132,8 @@ function showAutocompleteSuggestions(searchTerm) {
 }
 
 // Fungsi untuk memfilter kartu kelas (Live Search)
-function filterClassCards(searchTerm) {
+// Parameter `shouldScroll` ditambahkan untuk mengontrol perilaku scroll
+function filterClassCards(searchTerm, shouldScroll = false) {
   const term = searchTerm.toLowerCase(); // Pastikan term pencarian huruf kecil
 
   classData.forEach((item) => {
@@ -143,11 +145,12 @@ function filterClassCards(searchTerm) {
     }
   });
 
-  // Gulirkan ke bagian "Class" setelah pencarian (opsional)
-  // Untuk memastikan pengguna melihat hasil
-  const classSection = document.getElementById("class");
-  if (classSection) {
-    classSection.scrollIntoView({ behavior: "smooth" });
+  // Gulirkan ke bagian "Class" HANYA jika shouldScroll adalah true
+  if (shouldScroll) {
+    const classSection = document.getElementById("class");
+    if (classSection) {
+      classSection.scrollIntoView({ behavior: "smooth" });
+    }
   }
 }
 
@@ -155,7 +158,7 @@ function filterClassCards(searchTerm) {
 searchBox.addEventListener("input", () => {
   const searchTerm = searchBox.value.toLowerCase();
   showAutocompleteSuggestions(searchTerm); // Tampilkan saran autocomplete
-  filterClassCards(searchTerm); // Lakukan live search
+  filterClassCards(searchTerm, false); // Lakukan live search, tapi JANGAN scroll
 });
 
 // Sembunyikan autocomplete list saat search box kehilangan fokus (tapi masih dalam form)
@@ -164,9 +167,10 @@ searchBox.addEventListener("blur", () => {
   setTimeout(() => {
     if (!autocompleteList.contains(document.activeElement)) {
       autocompleteList.innerHTML = ""; // Kosongkan saran jika fokus hilang
+      autocompleteList.style.display = "none"; // Pastikan disembunyikan
     }
   }, 100);
 });
 
 // Pastikan autocomplete list muncul di atas elemen lain saat aktif
-// Anda perlu menambahkan CSS untuk #autocomplete-list
+// Anda perlu menambahkan CSS untuk #autocomplete-list agar memiliki z-index yang tinggi
