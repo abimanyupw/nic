@@ -44,12 +44,12 @@ header {
 .navbar-container .title {
   color: var(--white); /* Menggunakan variabel */
   font-weight: 500;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   text-shadow: 2px 2px 2px var(--black); /* Menggunakan variabel */
 }
 
 .logo img {
-  width: 90px;
+  width: 100px;
   margin-left: 1.5rem;
   border-radius: 50%;
   box-shadow: 0.5px 0.5px 4px var(--black); /* Menggunakan variabel */
@@ -373,9 +373,9 @@ header {
 }
 
 .class .class-card .class-item.minimalist .card-image-wrapper img {
-  object-fit: contain; /* Gambar tidak akan terpotong, pas di tengah */
-  width: 80%;
-  height: 80%; /* Sesuaikan tinggi gambar */
+  object-fit: cover; /* Gambar tidak akan terpotong, pas di tengah */
+  width: 100%;
+  height: 100%; /* Sesuaikan tinggi gambar */
   border-radius: 12px 12px 0 0; /* Radius atas untuk gambar */
 }
 
@@ -433,7 +433,6 @@ header {
   color: gold; /* Atau warna kuning lainnya */
 }
 
-/* Aksen Warna di Sudut Bawah Kanan */
 .class .class-card .class-item.minimalist::after {
   content: "";
   position: absolute;
@@ -642,7 +641,7 @@ footer .credits a {
   }
 
   .navbar-container .title {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
   }
 
   .logo img {
